@@ -1,0 +1,14 @@
+[build]
+  # Expo exports the web build to the 'dist' folder by default
+  publish = "dist"
+  
+  # Command to build the React Native Web app for production
+  command = "npx expo export -p web"
+
+# Single Page Application (SPA) routing requirement:
+# This ensures that deep linking (like /admin or /dashboard) 
+# routes back to index.html instead of throwing a 404 on Netlify.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
